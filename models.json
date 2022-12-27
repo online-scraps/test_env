@@ -1,0 +1,132 @@
+{
+
+    "sup_organizations":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "address": "string:required",
+            "email": "email:required",
+            "phone_no": "string:required",
+            "logo": "string:required",
+            "description": "string:required",
+            "is_active": "boolean"
+        }
+    },
+    "mst_stores":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "sup_org_id": "foreign:required:table-sup_organizations",
+            "address": "string:required",
+            "email": "email:required",
+            "phone_no": "string:required",
+            "logo": "string:required",
+            "description": "string:required",
+            "is_active": "boolean",
+            "store_user_id": "foreign:required:table-users"
+        }
+    },
+    "mst_items":{
+        "columns": {
+            "code": "string:required",
+            "barcode_details": "string:required",
+            "sup_org_id": "foreign:required:table-sup_organizations",
+            "batch_no": "string:required",
+            "store_id": "foreign:required:table-mst_stores",
+            "name": "string:required",
+            "description": "string:required",
+            "category_id": "foreign:required:table-mst_categories",
+            "subcategory_id": "foreign:required:table-mst_subcategories",
+            "supplier_id": "foreign:required:table-mst_suppliers",
+            "brand_id": "foreign:required:table-mst_brands",
+            "unit_id": "foreign:required:table-mst_units",
+            "stock_alert_minimum": "string:required",
+            "tax_vat": "string:required",
+            "discount_mode_id": "foreign:required:table-mst_discount_modes",
+            "is_damaged": "boolean",
+            "is_taxable": "boolean",
+            "is_nonclaimable": "boolean",
+            "is_staffdiscount": "boolean",
+            "is_active": "boolean"
+        }
+    },
+    "return_reasons":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "description": "string:nullable",
+            "is_active": "boolean"
+        }
+    },
+    "invoice_sequences":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "sequence_code": "integer:required",
+            "is_active": "boolean"
+        }
+    },
+    "po_sequences":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "sequence_code": "integer:required",
+            "is_active": "boolean"
+        }
+    },
+    "grn_sequences":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "sequence_code": "integer:required",
+            "is_active": "boolean"
+        }
+    },
+    "purchase_return_sequences":{
+        "columns": {
+            "code": "string:required",
+            "name_en": "string:required",
+            "name_lc": "string:required",
+            "sequence_code": "integer:required",
+            "is_active": "boolean"
+        }
+    },
+    "general_ledger_opening":{
+        "columns": {
+            "code": "string",
+            "name_en": "string",
+            "name_lc": "string",
+            "total_dr_amt": "float",
+            "total_cr_amt": "float",
+            "voucher_no": "string",
+            "voucher_date_bs": "string",
+            "voucher_date_ad": "date",
+            "sup_org_id": "foreign:required:table-sup_organizations",
+            "ledger_id": "foreign:table-general_ledgers",
+            "sub_ledger_id": "foreign:table-sub_ledgers",
+            "store_id": "foreign:table-mst_stores",
+            "remarks": "string",
+            "is_active": "boolean"
+        }
+    },
+    "general_ledger_opening_detail":{
+        "columns": {
+            "code": "string",
+            "dr_amt": "float",
+            "cr_amt": "float",
+            "ledger_id": "foreign:table-general_ledgers",
+            "sub_ledger_id": "foreign:table-sub_ledgers",            
+            "sup_org_id": "foreign:table-sup_organizations",
+            "glob_id": "foreign:table-general_ledger_opening",
+            "store_id": "foreign:table-mst_stores",
+            "remarks": "string",
+            "is_active": "boolean"
+        }
+    }
+}

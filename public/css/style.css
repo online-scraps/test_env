@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.billing_nav {
+    /* background-color: #F9F6F6; */
+    width: 100%;
+    height: 4rem;
+}
+
+.billing_nav {
+    display: flex;
+    margin: 0px auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading {
+    color: #192840;
+}
+
+.icon-btn {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.icon-btn:nth-child(1) {
+    background-color: #A90C27;
+    color: white;
+}
+
+.icon-btn:nth-child(2) {
+    background-color: #345BBB;
+    color: white;
+}
+
+.icon-btn:nth-child(3) {
+    background-color: #21418E;
+    color: white;
+}
